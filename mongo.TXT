@@ -1,0 +1,114 @@
+// Problem 2: Insert five rows / documents into the Customers collection with data of your choice.
+db.Customers.insertMany([
+  {
+    "_id": ObjectId(),
+    "name": "John Doe",
+    "email": "john@example.com",
+    "address": "123 Main St",
+    "phone_number": "555-1234"
+  },
+  {
+    "_id": ObjectId(),
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "address": "456 Elm St",
+    "phone_number": "555-5678"
+  },
+  {
+    "_id": ObjectId(),
+    "name": "Bob Johnson",
+    "email": "bob@example.com",
+    "address": "789 Oak St",
+    "phone_number": "555-9012"
+  },
+  {
+    "_id": ObjectId(),
+    "name": "Alice Williams",
+    "email": "alice@example.com",
+    "address": "321 Pine St",
+    "phone_number": "555-3456"
+  },
+  {
+    "_id": ObjectId(),
+    "name": "Mike Davis",
+    "email": "mike@example.com",
+    "address": "654 Cedar St",
+    "phone_number": "555-7890"
+  }
+]);
+
+
+
+// Problem 3: Write a query to fetch all data from the Customers collection.
+db.Customers.find();
+
+
+
+// Problem 4: Write a query to select only the name and email fields for all customers.
+db.Customers.find({}, { name: 1, email: 1 });
+
+
+
+
+// Problem 5: Write a query to fetch the customer with the id of 3.
+db.Customers.findOne({ _id: ObjectId("your-object-id-for-id-3") });
+db.Customers.find({_id:3})
+
+
+
+
+// Problem 6: Write a query to fetch all customers whose name starts with 'A'.
+db.Customers.find({ name: /^A/ });
+
+
+
+
+// Problem 7: Write a query to fetch all customers, ordered by name in descending order.
+db.Customers.find().sort({ name: -1 });
+
+
+
+// Problem 8: Write a query to update the address of the customer with id 4.
+db.Customers.updateOne({ _id: ObjectId("your-object-id-for-id-4") }, { $set: { address: "New Address" } });
+
+
+
+
+// Problem 9: Write a query to fetch the top 3 customers when ordered by id in ascending order.
+db.Customers.find().sort({ _id: 1 }).limit(3);
+
+
+
+
+// Problem 10: Write a query to delete the customer with id 2.
+db.Customers.deleteOne({ _id: ObjectId("your-object-id-for-id-2") });
+
+
+
+
+// Problem 11: Write a query to count the number of customers.
+db.Customers.countDocuments();
+
+
+
+
+// Problem 12: Write a query to fetch all customers except the first two when ordered by id in ascending order.
+db.Customers.find().sort({ _id: 1 }).skip(2);
+
+
+
+
+// Problem 13: Write a query to fetch all customers whose id is greater than 2 and name starts with 'B'.
+db.Customers.find({ _id: { $gt: ObjectId("your-object-id-for-id-2") }, name: /^B/ });
+
+
+
+
+// Problem 14: Write a query to fetch all customers whose id is less than 3 or name ends with 's'.
+db.Customers.find({ $or: [{ _id: { $lt: ObjectId("your-object-id-for-id-3") } }, { name: /s$/ }] });
+
+
+
+
+// Problem 15: Write a query to fetch all customers wherethe phone_number field is not set or is null.
+db.Customers.find({ phone_number: { $exists: false } });

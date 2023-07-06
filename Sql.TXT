@@ -1,0 +1,61 @@
+-- Problem 1: Create a Customers table with the following fields: id, name, email, address, and phone_number.
+CREATE TABLE Customers (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    address VARCHAR(255),
+    phone_number VARCHAR(50)
+);
+
+
+
+
+-- Problem 2: Insert five rows into the Customers table with data of your choice.
+INSERT INTO Customers (id, name, email, address, phone_number) VALUES
+(1, 'John Doe', 'john@example.com', '123 Main St', '555-1234'),
+(2, 'Jane Smith', 'jane@example.com', '456 Elm St', '555-5678'),
+(3, 'Bob Johnson', 'bob@example.com', '789 Oak St', '555-9012'),
+(4, 'Alice Williams', 'alice@example.com', '321 Pine St', '555-3456'),
+(5, 'Mike Davis', 'mike@example.com', '654 Cedar St', '555-7890');
+
+
+
+
+-- Problem 3: Write a query to fetch all data from the Customers table.
+SELECT * FROM Customers;
+
+-- Problem 4: Write a query to select only the name and email fields for all customers.
+SELECT name, email FROM Customers;
+
+-- Problem 5: Write a query to fetch the customer with the id of 3.
+SELECT * FROM Customers WHERE id = 3;
+
+-- Problem 6: Write a query to fetch all customers whose name starts with 'A'.
+SELECT * FROM Customers WHERE name LIKE 'A%';
+
+-- Problem 7: Write a query to fetch all customers, ordered by name in descending order.
+SELECT * FROM Customers ORDER BY name DESC;
+
+-- Problem 8: Write a query to update the address of the customer with id 4.
+UPDATE Customers SET address = 'New Address' WHERE id = 4;
+
+-- Problem 9: Write a query to fetch the top 3 customers when ordered by id in ascending order.
+SELECT * FROM Customers ORDER BY id ASC LIMIT 3;
+
+-- Problem 10: Write a query to delete the customer with id 2.
+DELETE FROM Customers WHERE id = 2;
+
+-- Problem 11: Write a query to count the number of customers.
+SELECT COUNT(*) FROM Customers;
+
+-- Problem 12: Write a query to fetch all customers except the first two when ordered by id in ascending order.
+SELECT * FROM Customers ORDER BY id ASC OFFSET 2;
+
+-- Problem 13: Write a query to fetch all customers whose id is greater than 2 and name starts with 'B'.
+SELECT * FROM Customers WHERE id > 2 AND name LIKE 'B%';
+
+-- Problem 14: Write a query to fetch all customers whose id is less than 3 or name ends with 's'.
+SELECT * FROM Customers WHERE id < 3 OR name LIKE '%s';
+
+-- Problem 15: Write a query to fetch all customers where the phone_number field is not set or is null.
+SELECT * FROM Customers WHERE phone_number IS NULL;
